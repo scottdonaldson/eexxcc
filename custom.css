@@ -1,13 +1,310 @@
-/******************************************  
- CUSTOM STYLESHEET
-*******************************************/
+/* General WPZOOM overrides and styles */
+/* ----------------------------------- */
 
-/*
-* You can place your custom CSS statements in this file, after this message.
-* It is better to write everything custom here
-* because this file won't be replaced during updates.
-* 
-* Simply copy an existing style from style.css to this file, 
-* and modify it to your liking.
-*/
+* { 
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	position: relative; 
+}
 
+body {
+	background: #fff;
+}
+
+.inner-wrap {
+	background-color: transparent;
+	width: 1100px;
+}
+	@media screen and (max-width: 1200px) {
+		.inner-wrap { width: 90%; padding: 0 3%; }
+	}
+
+img {
+	height: auto;
+	max-width: 100%;
+}
+
+.caps { text-transform: uppercase; }
+
+/* Specific style overrides */
+/* ------------------------ */
+
+#navbar {
+	border: 0;
+}
+
+#navsocial {
+	font-size: 18px;
+	margin-top: 20px;
+}
+
+	#navsocial li a {
+		color: #191919;
+	}
+
+#logo {
+	padding: 0;
+}
+
+h1.archive_title {
+	border: 0;
+	padding: 0;
+}
+
+.widget {
+	list-style-type: none;
+}
+
+.archive #sidebar, 
+.page #sidebar,
+.single #sidebar { margin-top: 20px; }
+
+/* New, EEXXCC-specific styles */
+/* --------------------------- */
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?-9up90y');
+	src:url('fonts/icomoon.eot?#iefix-9up90y') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?-9up90y') format('truetype'),
+		url('fonts/icomoon.woff?-9up90y') format('woff'),
+		url('fonts/icomoon.svg?-9up90y#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class*="icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-facebook:before { content: "\e600"; }
+.icon-twitter:before { content: "\e601"; }
+.icon-mail:before { content: "\e602"; }
+.icon-rss:before { content: "\e603"; }
+.icon-tumblr:before { content: "\e604"; }
+.icon-youtube:before { content: "\e605"; }
+
+
+@font-face {
+    font-family: 'bebas_neueregular';
+    src: url('fonts/BebasNeue-webfont.eot');
+    src: url('fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/BebasNeue-webfont.woff') format('woff'),
+         url('fonts/BebasNeue-webfont.ttf') format('truetype'),
+         url('fonts/BebasNeue-webfont.svg#bebas_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.header {
+	font-family: 'bebas_neueregular', sans-serif;
+}
+
+.alt,
+.widgettitle {
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+	font-size: 1em;
+	font-style: italic;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+.slashes {
+	background-image: url(images/slashes.png);
+	height: 16px;
+	margin: 10px 0;
+	width: 100%;
+}
+	.backgroundsize .slashes {
+		background-image: url(images/slashes-hi-res.png);
+		background-size: auto 100%;
+	}
+
+#topmenu {
+	float: left;
+}
+
+	#topmenu li {
+		display: inline-block;
+		font-style: italic;
+		margin-top: 10px;
+		text-transform: uppercase;
+	}
+
+	#topmenu li:after {
+		content: " /";
+	}
+
+		#topmenu li:last-child:after {
+			content: "";
+		}
+
+	#topmenu li a {
+		display: inline-block;
+		font-style: italic;
+		padding: 10px;
+	}
+
+	@media screen and (max-width: 640px) {
+		#topmenu {
+			margin-left: -10px;
+		}
+	}
+
+#masthead,
+#masthead img {
+	vertical-align: bottom;
+}
+
+	#masthead {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	#masthead > a,
+	#primary { 
+		line-height: 1;
+		display: inline-block;
+	}
+
+		@media screen and (max-width: 960px) {
+			#primary {
+				display: block;
+				margin-left: 10px;
+				margin-top: 15px;
+			}
+		}
+		@media screen and (max-width: 500px) {
+			#primary {
+				margin-left: -10px;
+			}
+		}
+
+	#masthead > a {
+		margin-right: 0.5em;
+	}
+
+	#airplane {
+		margin-left: 20px;
+		margin-right: 10px;
+	}		
+		@media screen and (max-width: 500px) {
+			#airplane { margin-left: 0; }
+		}
+
+	#logo {
+		width: 300px;
+	}
+		@media screen and (max-width: 500px) {
+			#logo { width: 200px; }
+		}
+
+#main {
+	padding-top: 40px;
+}
+
+#primary li {
+	display: inline-block;
+	padding: 0 0.5em;
+	font-size: 1.5em;
+}
+
+.post {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+	.post:last-child {
+		margin-bottom: 40px;
+	}
+
+	.blog .post img,
+	.archive .post img {
+		float: left;
+		margin-right: 5%;
+		width: 30%;
+	}
+
+	.blog .post .entry,
+	.archive .post .entry {
+		float: right;
+		width: 65%;
+	}
+
+	.blog .post .entry-meta,
+	.archive .post .entry-meta { display: none; }
+
+#featured .post {
+	margin-top: 0;
+	min-height: 116px; /* in case there's no featured image */
+}
+
+	#featured img {
+		width: 100%;
+	}
+
+	#featured .entry {
+		background-image: url(images/black-opacity-0.5.png);
+		bottom: 0;
+		padding: 2% 5%;
+		position: absolute;
+		width: 100%;
+	}
+
+		#featured .entry,
+		#featured .entry a {
+			color: #fff;
+		}
+		#featured .entry a:hover,
+		#featured .entry a:active {
+			color: #ea6c35;
+		}
+		#featured .entry .entry-meta { display: block; }
+		#featured .entry .entry-content { display: none; }
+
+ul.post-categories {
+	display: inline-block;
+	margin-left: 0;
+}
+
+	.post-categories li {
+		display: inline-block;
+	}
+	
+	.post-categories li:after {
+		content: ", ";
+	}
+
+		.post-categories li:last-child:after {
+			content: "";
+		}
+
+#pagination {
+	margin-top: 30px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.single { }
+
+	.single .entry-meta,
+	.page .entry-meta { margin-bottom: 20px;}
+	.single #featured,
+	.page #featured { margin-top: 20px; margin-bottom: 20px; }
+	.single .post,
+	.page .post { margin-top: 20px; }
+
+#footer-widgets {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}

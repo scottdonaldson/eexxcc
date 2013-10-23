@@ -1,103 +1,46 @@
-<?php get_header(); ?>
-<?php $template = get_post_meta($post->ID, 'wpzoom_post_template', true); ?>
+<?php get_header(); the_post(); ?>
 
-<div id="main"<?php 
-	  if ($template == 'side-left') {echo " class=\"side-left\"";}
-	  if ($template == 'full') {echo " class=\"full-width\"";} 
-	  ?>>
-	  
-	<?php if (option::get('post_category') == 'on') { ?><h3 class="category_link"><?php the_category(', '); ?></h3><?php } ?>
+<div id="main" class="inner-wrap clearfix">
 		
-	<h1 class="entry-title">
-		<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'wpzoom' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+	<h1 class="archive_title header">
+		<?php the_title(); ?>
 	</h1>
+	<div class="entry-meta">
+		<?php the_author_posts_link(); ?> | <?php the_category(); ?>
+	</div>
 		
- 	
+ 	<?php if (get_the_post_thumbnail()) { ?>
+	 	<div id="featured">
+			<?php the_post_thumbnail(); ?>
+		</div>
+	<?php } ?>
+
 	<div id="content">
-  	
- 		<div class="col_main">
  		
- 			<?php while (have_posts()) : the_post(); ?>
- 		
-			<div class="post-meta">
-			
-				<?php if (option::get('post_author') == 'on') { ?><?php _e('Posted by', 'wpzoom'); ?> <span class="vcard author"><span class="fn"><?php the_author_posts_link(); ?></span></span> <span class="separator">&times;</span><?php } ?>
-				<?php if (option::get('post_date') == 'on') { ?><?php printf( __('<span class="date updated">%s</span> at %s', 'wpzoom'),  get_the_date(), get_the_time()); ?><?php } ?>
+		<div <?php post_class('clearfix'); ?>>				
+			<?php the_content(); ?>
+		</div><!-- .post -->
 
-				<?php edit_post_link( __('Edit', 'wpzoom'), '<span class="separator">&times;</span> ', ''); ?>
- 			</div><!-- /.post-meta -->
-			
-		  
-			<div id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
-				 
-				<div class="entry">
-					<?php the_content(); ?>
-					<div class="clear"></div>
-					
-					<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'wpzoom' ) . '</span>', 'after' => '</div>' ) ); ?>
-					<div class="clear"></div>
-				
-				</div><!-- / .entry -->
-				<div class="clear"></div>
-			 
-			</div><!-- #post-<?php the_ID(); ?> -->
- 				
-			<?php if (option::get('post_tags') == 'on') { ?><?php the_tags( '<div class="tag_list">'. __('Tags:', 'wpzoom'). ' ',' <span class="separator">&times;</span> ', '</div>'); ?><?php } ?>
-				
- 				
-		</div> <!-- /.col_main -->
+		<h4>Share this: 
+		<a class="popup icon-facebook" href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>"></a>
+		<a class="popup icon-twitter" href="http://www.twitter.com/intent/tweet?text=<?php the_title(); ?>%20<?php the_permalink(); ?>%20(via%20%23eexxcc)"></a></h4>
 
-			
-		<div class="col_meta">
-		
- 			<?php if (option::get('post_nextprev') != 'on') { ?>
-				<div class="prevnext">
-				
-					<?php
-						$previous_post = get_previous_post();
-						$next_post = get_next_post();
-					?>
-			  
-					<?php if ($previous_post != NULL) { ?>
-						<a href="<?php echo get_permalink($previous_post->ID); ?>" title="<?php echo $previous_post->post_title; ?>">&laquo; <?php _e('Previous', 'wpzoom'); ?></a>
-					<?php } ?>
-						
-					<?php if ($previous_post != NULL && $next_post != NULL) { ?><span class="separator">&times;</span><?php } ?>
-						
-					<?php if ($next_post != NULL) { ?>
-						<a class="next_link" href="<?php echo get_permalink($next_post->ID); ?>" title="<?php echo $next_post->post_title; ?>"><?php _e('Next', 'wpzoom'); ?> &raquo;</a> 
-					<?php } ?>
-				</div><!-- /.nextprev -->
-			<?php } ?>	
-  				
-			
-			<?php if (option::get('post_share') == 'on') { ?>
-				<div class="share_box">
-					<h3><?php _e('Share', 'wpzoom'); ?></h3>
-					<div class="share_btn"><a href="http://twitter.com/share" data-url="<?php the_permalink() ?>" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></div>
-					<div class="share_btn"><iframe src="http://www.facebook.com/plugins/like.php?href=<?php echo urlencode(get_permalink($post->ID)); ?>&amp;layout=button_count&amp;show_faces=false&amp;width=1000&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe></div>
-					<div class="share_btn"><g:plusone size="medium"></g:plusone></div>
-				</div><div class="clear"></div>
-			<?php } ?>
-			
-			<?php if ( option::get('post_related') == 'on' && function_exists('wp_related_posts') ) wp_related_posts(); ?>
- 				
-		</div> <!-- /.col_meta -->
- 		<div class="clear"></div>
- 		 
-		 
-		<?php if (option::get('post_comments') == 'on') { 
-			comments_template();
-		} ?>
-			
-		<?php endwhile; ?>
+		<div class="slashes"></div>
+
+		<div id="disqus_thread" style="margin-top: 25px;"></div>
+	    <script type="text/javascript">
+	        var disqus_shortname = 'extracurriculars'; // required: replace example with your forum shortname
+
+	        (function() {
+	            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	        })();
+	    </script>
 
 	</div><!-- /#content -->
 	
-	
-	<?php if ($template != 'full') { 
-		get_sidebar(); 
-	} else { echo "<div class=\"clear\"></div>"; } ?>
+	<?php get_sidebar(); ?>
  
 </div><!-- /#main -->
 <?php get_footer(); ?> 
