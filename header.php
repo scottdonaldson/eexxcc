@@ -7,8 +7,10 @@
  
     <title><?php wp_title(''); ?></title>
 
-    <link rel="stylesheet" href="<?= bloginfo('stylesheet_url'); ?>" media="screen">
-    <link rel="stylesheet" href="<?= bloginfo('template_url'); ?>/custom.css" media="screen">
+    <link rel="shortcut icon" href="<?= bloginfo('template_url'); ?>/favicon.png">
+
+    <link rel="stylesheet" href="<?= bloginfo('stylesheet_url'); ?>">
+    <link rel="stylesheet" href="<?= bloginfo('template_url'); ?>/custom.css">
 	<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet'> 
 	
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
@@ -23,11 +25,12 @@
 		<div id="navbar" class="inner-wrap clearfix"> 
 			<ul id="navsocial">
 
-				<li><a class="icon-rss" href="<?= home_url(); ?>/feed"></a></li>
+				<li class="subscribe">Subscribe:</li>
+				<li><a class="icon-rss" href="<?= home_url(); ?>/feed" target="_blank"></a></li>
 
 				<li><a href="http://twitter.com/eexxcc" target="_blank" class="icon-twitter"></a></li>
 
-				<li><a href="https://www.facebook.com/extracurricularones" class="icon-facebook"></a></li>
+				<li><a href="https://www.facebook.com/extracurricularones" target="_blank" class="icon-facebook"></a></li>
 
 				<li><a href="http://youtube.com/extracurriculars" target="_blank" class="icon-youtube"></a></li>
 

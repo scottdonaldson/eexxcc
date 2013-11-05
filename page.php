@@ -14,8 +14,11 @@
 	<div id="content" <?php post_class('post clearfix'); ?>>
 		<?php the_content(); ?>
 	</div><!-- /#content -->
- 
- 	<?php get_sidebar(); ?>
-   			
+
+	<section id="sidebar">
+	 	<?php if (function_exists('dynamic_sidebar')) { dynamic_sidebar('Sidebar (Pages)'); } ?>
+   	</section>
+   	<div class="clear"></div>
+   	
 </div> <!-- /#main -->
 <?php get_footer(); ?> 

@@ -4,7 +4,8 @@
 	</h2>
 
 	<div class="entry-meta">
-		<?php the_author_posts_link(); ?> | <?php the_category(); ?>
+		<?php the_author_posts_link(); ?> | <?php the_category(); ?> | Share: <a class="popup icon-facebook" href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>"></a>
+		<a class="popup icon-twitter" href="http://www.twitter.com/intent/tweet?text=<?php the_title(); ?>%20<?php the_permalink(); ?>%20(via%20%23eexxcc)"></a>
 	</div>
 
 	<div class="entry-content">
