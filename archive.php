@@ -17,15 +17,14 @@
 		} elseif (is_author()) { 
 			_e( ' Articles by ', 'wpzoom' ); 
 			echo $curauth->display_name; 
-
-			if (get_field('bio')) {
-				the_field('bio');
-			}
 			?>  
 		<?php /* paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?><?php _e('Archives', 'wpzoom'); } ?>
 	</h1>
+	<?php
+	if ( is_author() && get_the_author_meta('description', $curauth->ID) ) {
+		the_author_meta('description', $curauth->ID);
+	}
 	
-	<?php 
 	get_template_part('loop');
 	get_sidebar(); 
 	?> 
