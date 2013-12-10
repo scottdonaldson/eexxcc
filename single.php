@@ -1,13 +1,15 @@
 <?php get_header(); the_post(); ?>
 
 <div id="main" class="inner-wrap clearfix">
-		
+
 	<h1 class="archive_title header">
 		<?php the_title(); ?>
 	</h1>
 	<div class="entry-meta">
 		<?php the_author_posts_link(); ?> | <?php the_category(); ?>
 	</div>
+
+	<div id="content">
 		
  	<?php if (get_the_post_thumbnail()) { ?>
 	 	<div id="featured">
@@ -15,15 +17,13 @@
 		</div>
 	<?php } ?>
 
-	<div id="content">
- 		
-		<div <?php post_class('clearfix'); ?>>				
+		<div <?php post_class('clearfix entry-content'); ?>>				
 			<?php the_content(); ?>
 		</div><!-- .post -->
 
 		<h4>Share this: 
 		<a class="popup icon-facebook" href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>"></a>
-		<a class="popup icon-twitter" href="http://www.twitter.com/intent/tweet?text=<?php the_title(); ?>%20<?php the_permalink(); ?>%20(via%20%23eexxcc)"></a></h4>
+		<a class="popup icon-twitter" href="http://www.twitter.com/intent/tweet?text=<?php the_title(); ?>%20<?php the_permalink(); ?>%20(via%20%40eexxcc)"></a></h4>
 
 		<div class="slashes"></div>
 

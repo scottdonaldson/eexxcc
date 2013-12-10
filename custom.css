@@ -2,6 +2,9 @@
 /* ----------------------------------- */
 
 /* HOT PINK: #fe57a1 */
+	
+	::-moz-selection { background: #fe57a1; }
+	::selection      { background: #fe57a1; }
 
 * { 
 	-webkit-box-sizing: border-box;
@@ -253,6 +256,16 @@ h1.archive_title {
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+
+	.entry-content a,
+	.entry-content a:visited {
+		color: #fe57a1;
+		font-weight: bold;
+	}
+		.entry-content a:active,
+		.entry-content a:hover {
+			color: #999;
+		}
 
 	.post:last-child {
 		margin-bottom: 40px;

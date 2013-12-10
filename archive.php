@@ -12,7 +12,16 @@
 		<?php /* daily archive */ } elseif (is_day()) { ?><?php _e('Archive for', 'wpzoom'); ?> <?php the_time('F jS, Y'); ?>
 		<?php /* monthly archive */ } elseif (is_month()) { ?><?php _e('Archive for', 'wpzoom'); ?> <?php the_time('F, Y'); ?>
 		<?php /* yearly archive */ } elseif (is_year()) { ?><?php _e('Archive for', 'wpzoom'); ?> <?php the_time('Y'); ?>
-		<?php /* author archive */ } elseif (is_author()) { ?><?php _e( ' Articles by ', 'wpzoom' ); echo $curauth->display_name; ?>  
+		<?php 
+		/* author archive */ 
+		} elseif (is_author()) { 
+			_e( ' Articles by ', 'wpzoom' ); 
+			echo $curauth->display_name; 
+
+			if (get_field('bio')) {
+				the_field('bio');
+			}
+			?>  
 		<?php /* paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?><?php _e('Archives', 'wpzoom'); } ?>
 	</h1>
 	
