@@ -25,7 +25,6 @@
 		<div id="navbar" class="inner-wrap clearfix"> 
 			<ul id="navsocial">
 
-				<li class="subscribe">Subscribe:</li>
 				<li><a class="icon-rss" href="<?= home_url(); ?>/feed" target="_blank"></a></li>
 
 				<li><a href="http://twitter.com/eexxcc" target="_blank" class="icon-twitter"></a></li>

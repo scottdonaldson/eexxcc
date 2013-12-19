@@ -6,7 +6,6 @@
 
  	<div class="slashes"></div>
 
-	<p class="widgettitle" style="margin: 1.5em 0 0;">Subscribe:</p>
 	<ul class="navsocial" style="margin-top: 5px;">	
 		<li><a class="icon-rss" href="<?= home_url(); ?>/feed" target="_blank"></a></li>
 
