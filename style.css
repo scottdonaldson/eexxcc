@@ -130,8 +130,6 @@ input[type=button]:hover,
 input[type=reset]:hover,
 input[type=submit]:hover { background: #222;  cursor: pointer; -webkit-transition-duration: 0.2s; -moz-transition-duration: 0.2s; transition-duration: 0.2s; }
 
-input#s { float:left; margin:0 5px 0 0; }
-
 /* Meta separator */
 .separator {
     color: #e5e5e5;
@@ -890,13 +888,6 @@ img.wp-smiley { border: none; padding: 0; }
 
 /* Archive widget */
 .widget_archive li { width:49%; float:left; display:block; margin:0;  padding:0 0 6px;}
-
-/* Facebook Like Box */
-div.fb-like.fb_iframe_widget {  width: 100% !important; }
-
-.fb_iframe_widget { width: 100%!important }
-.fb_iframe_widget span { width: 100%!important; }
-.fb_iframe_widget span iframe { width: 100%!important; }
 
 /*********************************************************************************************
 

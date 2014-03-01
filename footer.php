@@ -13,9 +13,25 @@
 				<?php if (function_exists('dynamic_sidebar')) { dynamic_sidebar('Footer (column 2)'); } ?>
 			</div><!-- / .column -->
 			
-			<div class="column last">
+			<div class="column">
 				<?php if (function_exists('dynamic_sidebar')) { dynamic_sidebar('Footer (column 3)'); } ?>
 			</div><!-- / .column -->
+
+			<div class="column">
+				<ul class="navsocial">
+
+					<li><a class="icon-rss" href="<?= home_url(); ?>/feed" target="_blank"></a></li>
+
+					<li><a href="http://twitter.com/eexxcc" target="_blank" class="icon-twitter"></a></li>
+
+					<li><a href="https://www.facebook.com/extracurricularones" target="_blank" class="icon-facebook"></a></li>
+
+					<li><a href="http://youtube.com/extracurriculars" target="_blank" class="icon-youtube"></a></li>
+
+					<li><a href="http://eexxcc.tumblr.com" target="_blank" class="icon-tumblr"></a></li>
+	  
+	 			</ul>
+			</div>
  
    			<div class="clear"></div>
         </div><!-- /.widget-area-->		
@@ -33,18 +49,13 @@ if (is_single()) { // Google Plus button ?>
 <script src="<?= bloginfo('template_url'); ?>/js/script.js"></script>
 <script>jQuery('.post').fitVids();</script>
 
+<?php get_template_part('scripts'); ?>
+
 <?php wp_footer(); ?>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-45464393-1', 'eexxcc.com');
-  ga('send', 'pageview');
 
-</script>
+
 
 </body>
 </html>

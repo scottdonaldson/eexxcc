@@ -23,7 +23,7 @@
 
 	<header id="header">
 		<div id="navbar" class="inner-wrap clearfix"> 
-			<ul id="navsocial">
+			<ul id="navsocial" class="navsocial">
 
 				<li><a class="icon-rss" href="<?= home_url(); ?>/feed" target="_blank"></a></li>
 
@@ -37,17 +37,21 @@
   
  			</ul>
 
-			<?php if (has_nav_menu( 'top' )) { 
-				wp_nav_menu(array(
-					'container' => 'menu',
-					'container_class' => '',
-					'menu_id' => 'topmenu',
-					'sort_column' => 'menu_order',
-					'theme_location' => 'top'
-					)
-				);
-			} 
-			?>
+			<div id="topmenu" class="menu">
+				<?php if (has_nav_menu( 'top' )) { 
+					wp_nav_menu(array(
+						'container' => false,
+						'container_class' => '',
+						'sort_column' => 'menu_order',
+						'theme_location' => 'top'
+						)
+					);
+				} 
+				?>
+				<form method="get" id="searchform" action="http://eexxcc.com/">
+						<input type="text" onblur="if (this.value == '') {this.value = 'Search';}" onfocus="if (this.value == 'Search') {this.value = '';}" value="Search" name="s" id="s">
+				</form>
+			</div>
 
 		</div><!-- #navbar -->
 

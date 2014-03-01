@@ -3,6 +3,34 @@
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'tiny', 500, 200 ); 
 
+add_theme_support('post-formats', array('aside'));
+function rename_post_formats( $safe_text ) {
+    if ( $safe_text == 'Aside' )
+        return 'Featured';
+
+    return $safe_text;
+}
+add_filter( 'esc_html', 'rename_post_formats' );
+
+//rename Aside in posts list table
+function live_rename_formats() { 
+    global $current_screen;
+
+    if ( $current_screen->id == 'edit-post' ) { ?>
+        <script>
+        jQuery('document').ready(function() {
+
+            jQuery("span.post-state-format").each(function() { 
+                if ( jQuery(this).text() == "Aside" )
+                    jQuery(this).text("Featured");             
+            });
+
+        });      
+        </script>
+<?php }
+}
+add_action('admin_head', 'live_rename_formats');
+
 function custom_excerpt_length( $length ) {
 	return 20;
 }

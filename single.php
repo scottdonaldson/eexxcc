@@ -1,4 +1,9 @@
-<?php get_header(); the_post(); ?>
+<?php get_header(); the_post(); 
+
+// Only load serif font if we're in a featured post
+if ( get_post_format() === 'aside' ) { ?>
+	<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<?php } ?>
 
 <div id="main" class="inner-wrap clearfix">
 
@@ -11,7 +16,7 @@
 
 	<div id="content">
 		
- 	<?php if (get_the_post_thumbnail()) { ?>
+ 	<?php if (get_the_post_thumbnail() && !get_field('hide_on_individual')) { ?>
 	 	<div id="featured">
 			<?php the_post_thumbnail(); ?>
 		</div>
@@ -21,9 +26,11 @@
 			<?php the_content(); ?>
 		</div><!-- .post -->
 
-		<h4>Share this: 
-		<a class="popup icon-facebook" href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>"></a>
-		<a class="popup icon-twitter" href="http://www.twitter.com/intent/tweet?text=<?php the_title(); ?>%20<?php the_permalink(); ?>%20(via%20%40eexxcc)"></a></h4>
+		<h4>Share this:</h4>
+		<div class="fb-share-button" data-href="<?php the_permalink(); ?>" data-type="button"></div>
+		<a href="<?php the_permalink(); ?>" class="twitter-share-button" data-lang="en" data-count="none" data-related="eexxcc">Share on Twitter</a>
+		<a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top left no-repeat transparent;">Share on Tumblr</a>
+		<div class="g-plusone" data-size="medium"></div>
 
 		<div class="slashes"></div>
 
