@@ -466,6 +466,7 @@ ul.post-categories {
 
 .single-format-aside #navbar,
 .single-format-aside #navbar + .slashes,
+.single-format-aside #masthead .menu,
 .single-format-aside #sidebar {
 	display: none;
 }
